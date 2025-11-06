@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import { cva, VariantProps } from "class-variance-authority";
 
 import { Typography, TypographyProps } from "../Typography/Typography";
@@ -30,7 +30,7 @@ export interface BadgeProps {
   textVariant?: TypographyProps["variant"];
 
   /** The content to display inside the badge. Can be text or numbers only */
-  children: string | number;
+  children: string | number | ReactNode;
 }
 
 
