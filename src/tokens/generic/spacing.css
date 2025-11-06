@@ -1,0 +1,12 @@
+:root {
+    --ds-spacing-0: 0px;
+    --ds-spacing-4xs: 2px;
+    --ds-spacing-3xs: 4px;
+    --ds-spacing-2xs: 8px;
+    --ds-spacing-xs: 12px;
+    --ds-spacing-s: 16px;
+    --ds-spacing-m: 20px;
+    --ds-spacing-l: 24px;
+    --ds-spacing-xl: 32px;
+    --ds-spacing-2xl: 48px;
+}

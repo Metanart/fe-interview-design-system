@@ -1,0 +1,21 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.variant-neutral {
+  background-color: var(--ds-color-surface-high);
+  color: var(--ds-color-on-neutral);
+}
+
+.variant-positive {
+  background-color: var(--ds-color-surface-positive);
+  color: var(--ds-color-on-positive);
+}
+
+.variant-negative {
+  background-color: var(--ds-color-surface-negative);
+  color: var(--ds-color-on-negative);
+}

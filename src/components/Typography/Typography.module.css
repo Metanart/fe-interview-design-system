@@ -1,0 +1,19 @@
+.typography {
+    margin: 0;
+    font-family: var(--ds-font-family);
+    font-weight: var(--ds-font-weight-regular);
+    color: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .body-m {
+    font-size: var(--ds-typography-body-m-font-size);
+    line-height: var(--ds-typography-body-m-line-height);
+  }
+  
+  .body-s {
+    font-size: var(--ds-typography-body-s-font-size);
+    line-height: var(--ds-typography-body-s-line-height);
+  }
+  

@@ -1,0 +1,6 @@
+:root {
+    --ds-typography-body-m-font-size: 14px;
+    --ds-typography-body-m-line-height: 1.5; /* 150% */
+    --ds-typography-body-s-font-size: 12px;
+    --ds-typography-body-s-line-height: 1.5; /* 150% */
+}

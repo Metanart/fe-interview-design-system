@@ -1,0 +1,16 @@
+:root {
+    --ds-color-inverse: rgb(27, 33, 52);
+    --ds-color-on-inverse: rgb(255, 255, 255);
+    --ds-color-inverse-hover: rgb(52, 58, 78);
+    --ds-color-inverse-active: rgb(88, 93, 113);
+    --ds-color-surface: rgb(255, 255, 255);
+    --ds-color-surface-hover: rgb(246, 246, 250);
+    --ds-color-surface-active: rgb(241, 241, 247);
+    --ds-color-on-neutral: rgb(27, 33, 52);
+    --ds-color-outline: rgb(211, 211, 220);
+    --ds-color-outline-hover: rgb(196, 197, 207);
+    --ds-color-surface-high: rgb(241, 241, 247);
+    --ds-color-surface-positive: rgb(177, 255, 199);
+    --ds-color-surface-negative: rgb(255, 191, 177);
+}
+
