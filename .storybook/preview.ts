@@ -1,9 +1,10 @@
 import type { Preview } from "@storybook/react-vite";
 
-import "../src/tokens/generic/colors.css";
-import "../src/tokens/generic/spacing.css";
-import "../src/tokens/generic/font.css";
-import "../src/tokens/typography.css";
+import "../src/tokens/border-radius.css"
+import "../src/tokens/colors.css"
+import "../src/tokens/font.css"
+import "../src/tokens/spacing.css"
+import "../src/tokens/typography.css"
 
 import "../src/styles/index.css";
 

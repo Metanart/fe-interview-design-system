@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import "./tokens/generic/colors.css";
-import "./tokens/generic/spacing.css";
-import "./tokens/generic/font.css";
-import "./tokens/typography.css";
+import "./tokens/border-radius.css"
+import "./tokens/colors.css"
+import "./tokens/font.css"
+import "./tokens/spacing.css"
+import "./tokens/typography.css"
 
 import "./styles/index.css";
 

@@ -1,3 +1,8 @@
+:root {
+  --ds-badge-border-radius: var(--ds-border-radius-large);
+  --ds-badge-border-radius-mobile: var(--ds-border-radius-medium);
+}
+
 .badge {
   display: inline-flex;
   align-items: center;
