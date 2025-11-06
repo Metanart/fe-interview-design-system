@@ -16,12 +16,10 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['body-m', 'body-s'],
-      description: 'The typography variant to use',
+      options: ['body-m', 'body-s', 'header-1', 'header-2', 'header-3'],
     },
     children: {
       control: 'text',
-      description: 'The text content to display',
     },
   },
 } satisfies Meta<typeof Typography>;

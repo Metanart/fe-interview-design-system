@@ -1,29 +1,44 @@
-import { FC, PropsWithChildren } from 'react';
-import { cva, VariantProps } from 'class-variance-authority';
+import { FC } from "react";
+import { cva, VariantProps } from "class-variance-authority";
 
-import styles from './Badge.module.css';
+import { Typography, TypographyProps } from "../Typography/Typography";
+
+import styles from "./Badge.module.css";
 
 const classNames = cva(styles.badge, {
   variants: {
     variant: {
-      neutral: styles['variant-neutral'],
-      positive: styles['variant-positive'],
-      negative: styles['variant-negative'],
+      neutral: styles["variant-neutral"],
+      positive: styles["variant-positive"],
+      negative: styles["variant-negative"],
     },
   },
   defaultVariants: {
-    variant: 'neutral',
+    variant: "neutral",
   },
 });
 
-export type BadgeVariant = VariantProps<typeof classNames>['variant'];
+type BadgeVariant = VariantProps<typeof classNames>["variant"];
+export interface BadgeProps {
+  /**
+   * The visual variant of the badge. Use neutral for general information,
+   * positive for success states, and negative for error or warning states
+   */
+  variant?: BadgeVariant;
 
-export interface BadgeProps extends PropsWithChildren, VariantProps<typeof classNames> {}
+  /** Text variant inside the badge, corresponds to TypographyProps["variant"] */
+  textVariant?: TypographyProps["variant"];
 
-export const Badge: FC<BadgeProps> = ({ variant, children}) => {
+  /** The content to display inside the badge. Can be text or numbers only */
+  children: string | number;
+}
+
+
+export const Badge: FC<BadgeProps> = (props: BadgeProps) => {
+  const { variant, children, textVariant = "body-s", ...rest } = props;
   return (
     <span className={classNames({ variant })}>
-        {children}
+      <Typography variant={textVariant} {...rest} >{children}</Typography>
     </span>
   );
 };

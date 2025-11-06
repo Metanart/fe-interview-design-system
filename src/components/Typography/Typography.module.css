@@ -7,13 +7,27 @@
     -moz-osx-font-smoothing: grayscale;
   }
   
-  .body-m {
+  .variant--body-m {
     font-size: var(--ds-typography-body-m-font-size);
     line-height: var(--ds-typography-body-m-line-height);
   }
   
-  .body-s {
+  .variant--body-s {
     font-size: var(--ds-typography-body-s-font-size);
     line-height: var(--ds-typography-body-s-line-height);
   }
   
+  .variant--header-1 {
+    font-size: var(--ds-typography-header-1-font-size);
+    line-height: var(--ds-typography-header-1-line-height);
+  }
+  
+  .variant--header-2 {
+    font-size: var(--ds-typography-header-2-font-size);
+    line-height: var(--ds-typography-header-2-line-height);
+  }
+  
+  .variant--header-3 {
+    font-size: var(--ds-typography-header-3-font-size);
+    line-height: var(--ds-typography-header-3-line-height);
+  }
