@@ -1,6 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { render } from '@testing-library/react';
 import { axe } from 'jest-axe';
+
+import { render } from '@testing-library/react';
+
 import { Typography } from './Typography';
 
 describe('Typography Accessibility', () => {

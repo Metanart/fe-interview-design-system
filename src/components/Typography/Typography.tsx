@@ -1,6 +1,5 @@
-import { FC } from 'react';
+import { FC, HTMLAttributes, ReactNode } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
-
 import styles from './Typography.module.css';
 
 export const classNames = cva(styles.typography, {
@@ -20,17 +19,19 @@ export const classNames = cva(styles.typography, {
 
 type TypographyVariant = VariantProps<typeof classNames>['variant'];
 
-export interface TypographyProps {
+export interface TypographyProps extends HTMLAttributes<HTMLElement> {
   /** Typography variant, changes the font size and line height */
   variant?: TypographyVariant;
 
-  /** Typography content, can be text or numbers */
-  children: string | number;
+  /** Typography content, can be text or numbers or ReactNode */
+  children: string | number | ReactNode;
 }
 
-export const Typography: FC<TypographyProps> = (props: TypographyProps) => {
-  const { variant = 'body-m', children, ...rest } = props;
-
+export const Typography: FC<TypographyProps> = ({
+  variant = 'body-m',
+  children,
+  ...rest
+}) => {
   return (
     <p className={classNames({ variant })} {...rest}>
       {children}
