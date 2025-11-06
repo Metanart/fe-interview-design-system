@@ -3,3 +3,9 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import "@testing-library/jest-dom";
+
+// Configure jest-axe to use vitest's expect
+import { toHaveNoViolations } from "jest-axe";
+import { expect } from "vitest";
+
+expect.extend(toHaveNoViolations);
