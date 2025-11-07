@@ -10,5 +10,5 @@ export default defineConfig({
     globals: true, //https://vitest.dev/guide/migration.html#globals-as-a-default
     environment: "jsdom",
     setupFiles: "./src/setupTests.ts",
-  },
+  }
 });

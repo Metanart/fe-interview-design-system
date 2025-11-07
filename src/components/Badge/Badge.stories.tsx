@@ -3,7 +3,7 @@ import { Badge } from './Badge';
 import { Typography } from '../Typography/Typography';
 
 const meta = {
-  title: 'Components/Badge',
+  title: 'Components/Generic/Badge',
   component: Badge,
   parameters: {
     layout: 'padded',

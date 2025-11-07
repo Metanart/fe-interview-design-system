@@ -38,7 +38,7 @@ export const Badge: FC<BadgeProps> = (props: BadgeProps) => {
   const { variant, children, textVariant = "body-s", ...rest } = props;
   return (
     <span className={classNames({ variant })}>
-      <Typography variant={textVariant} {...rest} >{children}</Typography>
+      <Typography variant={textVariant} weight="medium" {...rest} >{children}</Typography>
     </span>
   );
 };

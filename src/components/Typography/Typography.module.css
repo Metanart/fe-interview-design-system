@@ -6,6 +6,14 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  .weight--regular {
+    font-weight: var(--ds-font-weight-regular);
+  }
+
+  .weight--medium {
+    font-weight: var(--ds-font-weight-medium);
+  }
   
   .variant--body-m {
     font-size: var(--ds-typography-body-m-font-size);

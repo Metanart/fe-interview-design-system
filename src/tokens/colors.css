@@ -1,4 +1,5 @@
 :root {
+    --ds-color-generic-black: rgb(0, 0, 0);
     --ds-color-inverse: rgb(27, 33, 52);
     --ds-color-on-inverse: rgb(255, 255, 255);
     --ds-color-inverse-hover: rgb(52, 58, 78);

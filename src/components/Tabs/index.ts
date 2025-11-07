@@ -1,4 +1,4 @@
 export { Tabs } from "./Tabs";
 export { Tab } from "./Tab";
-export { TabList } from "./TabList";
+export { TabsList } from "./TabsList";
 export { TabPanel } from "./TabPanel";

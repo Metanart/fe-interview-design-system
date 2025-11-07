@@ -1,4 +1,4 @@
-import { FC, HTMLAttributes, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 import styles from './Typography.module.css';
 
@@ -11,6 +11,10 @@ export const classNames = cva(styles.typography, {
       'header-2': styles['variant--header-2'],
       'header-3': styles['variant--header-3'],
     },
+    weight: {
+      regular: styles['weight--regular'],
+      medium: styles['weight--medium'],
+    },
   },
   defaultVariants: {
     variant: 'body-m',
@@ -19,9 +23,14 @@ export const classNames = cva(styles.typography, {
 
 type TypographyVariant = VariantProps<typeof classNames>['variant'];
 
-export interface TypographyProps extends HTMLAttributes<HTMLElement> {
+type TypographyWeight = VariantProps<typeof classNames>['weight'];
+
+export type TypographyProps = {
   /** Typography variant, changes the font size and line height */
   variant?: TypographyVariant;
+
+  /** Typography weight, changes the font weight */
+  weight?: TypographyWeight;
 
   /** Typography content, can be text or numbers or ReactNode */
   children: string | number | ReactNode;
@@ -29,11 +38,11 @@ export interface TypographyProps extends HTMLAttributes<HTMLElement> {
 
 export const Typography: FC<TypographyProps> = ({
   variant = 'body-m',
+  weight = 'regular',
   children,
-  ...rest
 }) => {
   return (
-    <p className={classNames({ variant })} {...rest}>
+    <p className={classNames({ variant, weight })}>
       {children}
     </p>
   );

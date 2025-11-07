@@ -1,34 +1,48 @@
 import { ReactElement, ReactNode, createContext, useContext, useState } from "react";
 
-export type TabVariant = "pill" | "underline";
+import { TabVariant } from "./types";
 
-interface TabsContextValue {
-  activeTab: string;
-  setActiveTab: (value: string) => void;
-  variant: TabVariant;
-  groupId: string;
+export type TabsContextValue = {
+  /** The id of the active tab */
+  activeTabId: string;
+
+  /** The function to set the id of the active tab */
+  setActiveTabId: (value: string) => void;
+  
+  /** The variant of the tabs, corresponds to TabProps["variant"] */
+  tabVariant: TabVariant;
+  
+  /** The id of the tabs group */
+  tabsGroupId: string;
 }
 
 const TabsContext = createContext<TabsContextValue | undefined>(undefined);
 
-export const useTabsContext = () => useContext(TabsContext);
+export const useTabsContext = (): TabsContextValue => useContext(TabsContext) as TabsContextValue;
 
-interface TabsProviderProps {
-  defaultActiveTab: string;
-  variant?: TabVariant;
-  groupId?: string;
+type TabsProviderProps = {
+  /** The id of the default active tab */
+  defaultActiveTabId: string;
+
+  /** The variant of the tabs, corresponds to TabProps["variant"] */
+  tabVariant?: TabVariant;
+
+  /** The id of the tabs group */
+  tabsGroupId?: string;
+
+  /** The content to display inside the tabs */
   children: ReactNode;
 }
 
 export const TabsProvider = ({
-  defaultActiveTab,
-  variant = "pill",
-  groupId = "tabs",
+  defaultActiveTabId,
+  tabVariant = "pill",
+  tabsGroupId = "tabs",
   children,
 }: TabsProviderProps): ReactElement<TabsContextValue> => {
-  const [activeTab, setActiveTab] = useState<string>(defaultActiveTab);
+  const [activeTabId, setActiveTabId] = useState<string>(defaultActiveTabId);
 
   return (
-    <TabsContext.Provider value={{ activeTab, setActiveTab, variant, groupId }}>{children}</TabsContext.Provider>
+    <TabsContext.Provider value={{ activeTabId, setActiveTabId, tabVariant, tabsGroupId }}>{children}</TabsContext.Provider>
   );
 };

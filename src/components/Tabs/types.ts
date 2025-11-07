@@ -1,0 +1,1 @@
+export type TabVariant = "pill" | "underline";
