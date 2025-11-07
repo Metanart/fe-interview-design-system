@@ -62,12 +62,12 @@ export const PillTabs: Story = {
             Settings
           </Tab>
           <Tab
-            id="advanced"
+            id="disabled-advanced"
             onClick={() => {}}
             onKeyDown={() => {}}
             isDisabled={true}
           >
-            Advanced
+            Disabled Advanced
           </Tab>
         </TabsList>
         <TabPanel tabId="overview">
@@ -159,12 +159,12 @@ export const UnderlineTabs: Story = {
             About
           </Tab>
           <Tab
-            id="contact"
+            id="disabled-contact"
             onClick={() => {}}
             onKeyDown={() => {}}
             isDisabled={true}
           >
-            Contact
+            Disabled Contact
           </Tab>
         </TabsList>
         <TabPanel tabId="home">
