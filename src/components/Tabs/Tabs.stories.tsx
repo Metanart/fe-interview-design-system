@@ -68,7 +68,7 @@ export const PillTabs: Story = {
             Advanced
           </Tab>
         </TabsList>
-        <TabPanel id="overview">
+        <TabPanel tabId="overview">
           <Typography variant="header-1">Overview</Typography>
           <Typography variant="body-m">
             This is the overview tab content. Here you can see a summary of all the important information.
@@ -80,7 +80,7 @@ export const PillTabs: Story = {
             laboris nisi ut aliquip ex ea commodo consequat.
           </Typography>
         </TabPanel>
-        <TabPanel id="details">
+        <TabPanel tabId="details">
           <Typography variant="header-1">Details</Typography>
           <Typography variant="body-m">
             This is the details tab content. Here you can find comprehensive information about specific 
@@ -92,7 +92,7 @@ export const PillTabs: Story = {
             mollit anim id est laborum.
           </Typography>
         </TabPanel>
-        <TabPanel id="settings">
+        <TabPanel tabId="settings">
           <Typography variant="header-1">Settings</Typography>
           <Typography variant="body-m">
             This is the settings tab content. Here you can configure various options and preferences 
@@ -104,7 +104,7 @@ export const PillTabs: Story = {
             architecto beatae vitae dicta sunt explicabo.
           </Typography>
         </TabPanel>
-        <TabPanel id="advanced">
+        <TabPanel tabId="advanced">
           <Typography variant="header-1">Advanced</Typography>
           <Typography variant="body-m">
             This is the advanced tab content. Here you can access advanced features and configurations 
@@ -164,7 +164,7 @@ export const UnderlineTabs: Story = {
             Contact
           </Tab>
         </TabsList>
-        <TabPanel id="home">
+        <TabPanel tabId="home">
           <Typography variant="header-1">Home</Typography>
           <Typography variant="body-m">
             Welcome to the home page. This is the main landing area where visitors first arrive. 
@@ -176,7 +176,7 @@ export const UnderlineTabs: Story = {
             eleifend nibh porttitor.
           </Typography>
         </TabPanel>
-        <TabPanel id="products">
+        <TabPanel tabId="products">
           <Typography variant="header-1">Products</Typography>
           <Typography variant="body-m">
             Browse our extensive product catalog. We offer a wide range of high-quality items 
@@ -188,7 +188,7 @@ export const UnderlineTabs: Story = {
             esse cillum dolore eu fugiat nulla pariatur.
           </Typography>
         </TabPanel>
-        <TabPanel id="about">
+        <TabPanel tabId="about">
           <Typography variant="header-1">About</Typography>
           <Typography variant="body-m">
             Learn more about our company, mission, and values. We've been serving customers for 
@@ -201,7 +201,7 @@ export const UnderlineTabs: Story = {
             voluptatem accusantium doloremque laudantium.
           </Typography>
         </TabPanel>
-        <TabPanel id="contact">
+        <TabPanel tabId="contact">
           <Typography variant="header-1">Contact</Typography>
           <Typography variant="body-m">
             Get in touch with us! We're here to help answer any questions you may have. Reach out 

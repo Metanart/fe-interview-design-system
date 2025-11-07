@@ -3,7 +3,7 @@ import { cva, VariantProps } from "class-variance-authority";
 
 import { Typography, TypographyProps } from "../Typography/Typography";
 
-import styles from "./Badge.module.css";
+import styles from "./Badge.module.scss";
 
 const classNames = cva(styles.badge, {
   variants: {

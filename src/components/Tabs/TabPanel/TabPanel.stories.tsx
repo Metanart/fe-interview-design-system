@@ -23,7 +23,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    id: 'contact',
+    tabId: 'contact',
     children: null,
   },
   render: () => (
@@ -31,7 +31,7 @@ export const Default: Story = {
       defaultActiveTabId="contact" 
       tabsGroupId="storybook-tabpanel"
     >
-      <TabPanel id="contact">
+      <TabPanel tabId="contact">
         <Typography variant="header-1">Contact</Typography>
         <Typography variant="body-m">
           Get in touch with us! We're here to help answer any questions you may have. Reach out 

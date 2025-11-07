@@ -4,32 +4,28 @@ import { useTabsContext } from "../TabsContext";
 import styles from "./TabPanel.module.css";
 
 export type TabPanelProps = {
-  /**
-   * The id of the tab panel.
-   * Should be the same as the id of the tab that controls the panel.
-   * This is used to determine which panel to display when the tab is selected.
-   */
-  id: string;
-
-  /**
-   * The content to display inside the tab panel.
-   */
+  /** The id of the tab controlling the panel. */
+  tabId: string;
+  
+  /** The content to display inside the tab panel */
   children: ReactNode;
 }
 
 export const TabPanel: FC<TabPanelProps> = (props) => {
-  const { id, children } = props;
+  const { tabId, children } = props;
   
   const { activeTabId, tabsGroupId } = useTabsContext();
   
-  if (activeTabId !== id) return null;
+  const isActive = activeTabId === tabId;
 
   return (
     <div 
       role="tabpanel" 
-      id={`${tabsGroupId}-panel-${id}`}
-      aria-labelledby={`${tabsGroupId}-tab-${id}`}
+      id={`${tabsGroupId}-panel-${tabId}`}
+      aria-labelledby={`${tabsGroupId}-tab-${tabId}`}
       className={styles.tabPanel}
+      hidden={!isActive}
+      tabIndex={isActive ? 0 : -1}
     >
       {children}
     </div>

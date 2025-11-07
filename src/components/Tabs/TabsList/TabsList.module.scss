@@ -4,6 +4,12 @@
   display: flex;
   width: 100%;
   overflow-x: auto;
+  // Yup, I know that this is a hack,
+  // but I decided no to overcomplicate the code for this case.
+  // For production I would implement variant with some kind of box-shadow or
+  // create a separate component "TabFocusHighlight" rendered above the tabs list and highlighting the focused tab.
+  padding: var(--ds-spacing-3xs);
+  margin: calc(var(--ds-spacing-3xs) * -1);
 }
 
 .variant--pill {

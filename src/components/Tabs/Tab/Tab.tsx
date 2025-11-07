@@ -1,4 +1,4 @@
-import { FC, ReactNode, useCallback } from "react";
+import { FC, ReactNode, useCallback, useEffect, useRef } from "react";
 import { cva } from "class-variance-authority";
 
 import { useTabsContext } from "../TabsContext";
@@ -25,7 +25,7 @@ export type TabProps = {
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   
   /** The function to handle the key down event */
-  onKeyDown: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
+  onKeyDown?: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
 
   /** The content to display inside the tab */
   children: ReactNode;
@@ -44,7 +44,8 @@ const classNames = cva(styles.tab, {
 });
 
 export const Tab: FC<TabProps> = (props) => {
-  const { id,
+  const {
+    id: tabId,
     variant: propVariant,
     isSelected: propIsSelected,
     isDisabled,
@@ -53,30 +54,123 @@ export const Tab: FC<TabProps> = (props) => {
     onKeyDown,
 } = props;
 
-  const { activeTabId, setActiveTabId, tabVariant, tabsGroupId } = useTabsContext();
+  const { 
+    activeTabId, 
+    setActiveTabId, 
+    tabVariant, 
+    tabsGroupId,
+    registerTab,
+    unregisterTab,
+    getFirstTabId,
+    getLastTabId,
+  } = useTabsContext();
+
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const variant = propVariant ?? tabVariant;
-  const isSelected = activeTabId === id ? true : propIsSelected ?? false;
+  const isSelected = activeTabId === tabId ? true : propIsSelected ?? false;
+
+  // Register/unregister tab on mount/unmount
+  useEffect(() => {
+    registerTab(tabId, isDisabled ?? false);
+    return () => {
+      unregisterTab(tabId);
+    };
+  }, [tabId, isDisabled, registerTab, unregisterTab]);
+
+  // Update registration when disabled state changes
+  useEffect(() => {
+    registerTab(tabId, isDisabled ?? false);
+  }, [tabId, isDisabled, registerTab]);
+
+  // Focus the tab when it becomes selected (but not on initial render)
+  useEffect(() => {
+    if (isSelected && buttonRef.current && document.activeElement !== buttonRef.current) {
+      // Only focus if focus is not already on this element
+      // This prevents unwanted focus changes during arrow key navigation
+      const shouldFocus = buttonRef.current.getAttribute("data-should-focus") === "true";
+      if (shouldFocus) {
+        buttonRef.current.focus();
+        buttonRef.current.removeAttribute("data-should-focus");
+      }
+    }
+  }, [isSelected]);
 
   const handleClick = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
     if (isDisabled) return;
 
-    if (!isSelected) setActiveTabId(id);
+    if (!isSelected) setActiveTabId(tabId);
 
     onClick?.(event);
-  }, [isDisabled, isSelected, setActiveTabId, onClick]);
+  }, [tabId, isDisabled, isSelected, setActiveTabId, onClick]);
+
+  const handleKeyDown = useCallback((event: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (isDisabled) return;
+
+    // Handle Enter and Space to activate tab
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      if (!isSelected) {
+        setActiveTabId(tabId);
+      }
+      // Create a synthetic click event for onClick handler
+      const syntheticEvent = {
+        ...event,
+        type: "click",
+        currentTarget: event.currentTarget,
+        target: event.target,
+      } as unknown as React.MouseEvent<HTMLButtonElement>;
+      onClick?.(syntheticEvent);
+      return;
+    }
+
+    // Handle Home key - go to first tab
+    if (event.key === "Home") {
+      event.preventDefault();
+      const firstTabId = getFirstTabId();
+      if (firstTabId && firstTabId !== activeTabId) {
+        // Mark that we should focus the new tab
+        const firstTabElement = document.getElementById(`${tabsGroupId}-tab-${firstTabId}`);
+        if (firstTabElement) {
+          firstTabElement.setAttribute("data-should-focus", "true");
+        }
+        setActiveTabId(firstTabId);
+      }
+      return;
+    }
+
+    // Handle End key - go to last tab
+    if (event.key === "End") {
+      event.preventDefault();
+      const lastTabId = getLastTabId();
+      if (lastTabId && lastTabId !== activeTabId) {
+        // Mark that we should focus the new tab
+        const lastTabElement = document.getElementById(`${tabsGroupId}-tab-${lastTabId}`);
+        if (lastTabElement) {
+          lastTabElement.setAttribute("data-should-focus", "true");
+        }
+        setActiveTabId(lastTabId);
+      }
+      return;
+    }
+
+    // Call custom onKeyDown handler for other keys
+    onKeyDown?.(event);
+  }, [tabId, isDisabled, isSelected, activeTabId, setActiveTabId, onClick, onKeyDown, getFirstTabId, getLastTabId, tabsGroupId]);
 
   return (
     <button
+      ref={buttonRef}
       role="tab"
       type="button"
+      id={`${tabsGroupId}-tab-${tabId}`}
       className={classNames({ variant: variant ?? tabVariant })}
       aria-selected={isSelected ? "true" : "false"}
-      aria-controls={`${tabsGroupId}-panel-${id}`}
+      aria-controls={`${tabsGroupId}-panel-${tabId}`}
       aria-disabled={isDisabled ? "true" : undefined}
       tabIndex={isDisabled ? -1 : isSelected ? 0 : -1}
       onClick={handleClick}
-      onKeyDown={onKeyDown}
+      onKeyDown={handleKeyDown}
     >
       <div className={styles.labelText}>
         <Typography variant="body-m" weight="medium">{children}</Typography>
