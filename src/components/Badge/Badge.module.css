@@ -10,17 +10,17 @@
   border-radius: 12px;
 }
 
-.variant-neutral {
+.variant--neutral {
   background-color: var(--ds-color-surface-high);
   color: var(--ds-color-on-neutral);
 }
 
-.variant-positive {
+.variant--positive {
   background-color: var(--ds-color-surface-positive);
   color: var(--ds-color-on-positive);
 }
 
-.variant-negative {
+.variant--negative {
   background-color: var(--ds-color-surface-negative);
   color: var(--ds-color-on-negative);
 }

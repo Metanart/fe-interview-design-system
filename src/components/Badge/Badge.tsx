@@ -8,9 +8,9 @@ import styles from "./Badge.module.css";
 const classNames = cva(styles.badge, {
   variants: {
     variant: {
-      neutral: styles["variant-neutral"],
-      positive: styles["variant-positive"],
-      negative: styles["variant-negative"],
+      neutral: styles["variant--neutral"],
+      positive: styles["variant--positive"],
+      negative: styles["variant--negative"],
     },
   },
   defaultVariants: {
