@@ -59,14 +59,15 @@ export const PillTabs: Story = {
             onClick={() => {}}
             onKeyDown={() => {}}
           >
-            Settings <Badge variant="negative">2</Badge>
+            Settings
           </Tab>
           <Tab
             id="advanced"
             onClick={() => {}}
             onKeyDown={() => {}}
+            isDisabled={true}
           >
-            Advanced <Badge variant="neutral">3</Badge>
+            Advanced
           </Tab>
         </TabsList>
         <TabPanel tabId="overview">
@@ -155,14 +156,15 @@ export const UnderlineTabs: Story = {
             onClick={() => {}}
             onKeyDown={() => {}}
           >
-            About <Badge variant="negative">2</Badge>
+            About
           </Tab>
           <Tab
             id="contact"
             onClick={() => {}}
             onKeyDown={() => {}}
+            isDisabled={true}
           >
-            Contact <Badge variant="neutral">3</Badge>
+            Contact
           </Tab>
         </TabsList>
         <TabPanel tabId="home">
