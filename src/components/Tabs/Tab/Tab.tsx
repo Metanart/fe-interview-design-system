@@ -1,25 +1,22 @@
 import { FC, ReactNode, useCallback } from "react";
 import { cva } from "class-variance-authority";
 
-import { useTabsContext } from "./TabsContext";
+import { useTabsContext } from "../TabsContext";
 
-import { TabVariant } from "./types";
+import { TabVariant } from "../types";
 
 import styles from "./Tab.module.scss";
-import { Typography } from "../Typography/Typography";
+import { Typography } from "../../Typography/Typography";
 
 export type TabProps = {
   /** The id of the tab */
   id: string;
 
   /** The variant of the tab, changes shape and style of the tab */
-  variant: TabVariant;
-
-  /** The state of the tab, changes visual appearance of the tab */
-  state: "default" | "hover" | "active" | "focus";
+  variant?: TabVariant;
 
   /** Whether the tab is selected */
-  isSelected: boolean;
+  isSelected?: boolean;
 
   /** Whether the tab is disabled */
   isDisabled?: boolean;

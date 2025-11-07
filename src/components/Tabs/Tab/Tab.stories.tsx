@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { TabsProvider } from './TabsContext';
+import { TabsProvider } from '../TabsContext';
 import { Tab } from './Tab';
 import type { TabProps } from './Tab';
 

@@ -1,0 +1,25 @@
+@use "../../../styles/variables.scss" as *;
+
+.tabsList {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.variant--pill {
+  gap: var(--ds-spacing-2xs);
+  
+  @media screen and (min-width: $ds-breakpoint-mobile) {
+    gap: var(--ds-spacing-xs);
+  }
+}
+
+/* Underline variant gaps */
+.variant--underline {
+  gap: var(--ds-spacing-l);
+
+  @media screen and (min-width: $ds-breakpoint-mobile) {
+    gap: var(--ds-spacing-xl);
+  }
+}
+
