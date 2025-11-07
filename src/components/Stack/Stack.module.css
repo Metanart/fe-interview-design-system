@@ -1,0 +1,52 @@
+.stack {
+  display: flex;
+}
+
+.direction--row {
+  flex-direction: row;
+}
+
+.direction--column {
+  flex-direction: column;
+}
+
+.spacing--0 {
+  gap: var(--ds-spacing-0);
+}
+
+.spacing--4xs {
+  gap: var(--ds-spacing-4xs);
+}
+
+.spacing--3xs {
+  gap: var(--ds-spacing-3xs);
+}
+
+.spacing--2xs {
+  gap: var(--ds-spacing-2xs);
+}
+
+.spacing--xs {
+  gap: var(--ds-spacing-xs);
+}
+
+.spacing--s {
+  gap: var(--ds-spacing-s);
+}
+
+.spacing--m {
+  gap: var(--ds-spacing-m);
+}
+
+.spacing--l {
+  gap: var(--ds-spacing-l);
+}
+
+.spacing--xl {
+  gap: var(--ds-spacing-xl);
+}
+
+.spacing--2xl {
+  gap: var(--ds-spacing-2xl);
+}
+
