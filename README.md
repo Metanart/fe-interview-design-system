@@ -15,3 +15,5 @@
 - All created components covered with Storybook stories examples with auto-generated docs
 - `SCSS` preprocessor was used to simplify the cascading style sheet code
 - Design tokens are organized into separate files by group and are used as native CSS variables
+
+PS: I tried running the code through ESLint, but the configurations in the test assignment repository are incompatible with ESLint ≥9. The main functionality has been checked manually
