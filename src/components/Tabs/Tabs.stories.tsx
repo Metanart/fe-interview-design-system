@@ -6,6 +6,7 @@ import { Tab } from './Tab/Tab';
 import { TabPanel } from './TabPanel/TabPanel';
 import { Typography } from '../Typography/Typography';
 import { Stack } from '../Stack/Stack';
+import { Badge } from '../Badge/Badge';
 
 const meta = {
   title: 'Components/Tabs/Tabs',
@@ -44,28 +45,28 @@ export const PillTabs: Story = {
             onClick={() => {}}
             onKeyDown={() => {}}
           >
-            Overview
+            Overview <Badge variant="neutral">3</Badge>
           </Tab>
           <Tab
             id="details"
             onClick={() => {}}
             onKeyDown={() => {}}
           >
-            Details
+            Details <Badge variant="positive">1</Badge>
           </Tab>
           <Tab
             id="settings"
             onClick={() => {}}
             onKeyDown={() => {}}
           >
-            Settings
+            Settings <Badge variant="negative">2</Badge>
           </Tab>
           <Tab
             id="advanced"
             onClick={() => {}}
             onKeyDown={() => {}}
           >
-            Advanced
+            Advanced <Badge variant="neutral">3</Badge>
           </Tab>
         </TabsList>
         <TabPanel tabId="overview">
@@ -140,28 +141,28 @@ export const UnderlineTabs: Story = {
             onClick={() => {}}
             onKeyDown={() => {}}
           >
-            Home
+            Home <Badge variant="neutral">3</Badge>
           </Tab>
           <Tab
             id="products"
             onClick={() => {}}
             onKeyDown={() => {}}
           >
-            Products
+            Products <Badge variant="positive">1</Badge>
           </Tab>
           <Tab
             id="about"
             onClick={() => {}}
             onKeyDown={() => {}}
           >
-            About
+            About <Badge variant="negative">2</Badge>
           </Tab>
           <Tab
             id="contact"
             onClick={() => {}}
             onKeyDown={() => {}}
           >
-            Contact
+            Contact <Badge variant="neutral">3</Badge>
           </Tab>
         </TabsList>
         <TabPanel tabId="home">

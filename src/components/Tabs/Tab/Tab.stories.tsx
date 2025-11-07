@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
+import { Badge } from '../../Badge/Badge';
 import { TabsProvider } from '../TabsContext';
 import { Tab } from './Tab';
 import type { TabProps } from './Tab';
@@ -53,7 +54,6 @@ const createTabStory = (
       <Tab
         id={id}
         variant={variant}
-        state="default"
         isSelected={isSelected}
         isDisabled={isDisabled}
         onClick={() => {}}
@@ -93,5 +93,49 @@ export const UnderlineSelected: Story = {
 
 export const UnderlineDisabled: Story = {
   render: () => createTabStory('tab-1', 'underline', false, true),
+  args: {} as TabProps,
+};
+
+export const PillWithBadge: Story = {
+  render: () => (
+    <TabsProvider 
+      defaultActiveTabId="tab-1" 
+      tabsGroupId="storybook-tabs"
+      tabVariant="pill"
+    >
+      <Tab
+        id="tab-1"
+        variant="pill"
+        isSelected={true}
+        isDisabled={false}
+        onClick={() => {}}
+        onKeyDown={() => {}}
+      >
+        Notifications <Badge variant="neutral">3</Badge>
+      </Tab>
+    </TabsProvider>
+  ),
+  args: {} as TabProps,
+};
+
+export const UnderlineWithBadge: Story = {
+  render: () => (
+    <TabsProvider 
+      defaultActiveTabId="tab-1" 
+      tabsGroupId="storybook-tabs"
+      tabVariant="underline"
+    >
+      <Tab
+        id="tab-1"
+        variant="underline"
+        isSelected={true}
+        isDisabled={false}
+        onClick={() => {}}
+        onKeyDown={() => {}}
+      >
+        Messages <Badge variant="positive">12</Badge>
+      </Tab>
+    </TabsProvider>
+  ),
   args: {} as TabProps,
 };
