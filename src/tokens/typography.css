@@ -4,9 +4,9 @@
     --ds-typography-body-s-font-size: 12px;
     --ds-typography-body-s-line-height: 1.5; /* 150% */
     --ds-typography-header-1-font-size: 24px;
-    --ds-typography-header-1-line-height: 1.2; /* 120% */
+    --ds-typography-header-1-line-height: 2.4; /* 120% */
     --ds-typography-header-2-font-size: 20px;
-    --ds-typography-header-2-line-height: 1.2; /* 120% */
+    --ds-typography-header-2-line-height: 2.0; /* 120% */
     --ds-typography-header-3-font-size: 18px;
-    --ds-typography-header-3-line-height: 1.2; /* 120% */
+    --ds-typography-header-3-line-height: 1.8; /* 120% */
 }

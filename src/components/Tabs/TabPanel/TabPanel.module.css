@@ -1,0 +1,5 @@
+.tabPanel {
+  border-radius: var(--ds-border-radius-medium);
+  background-color: var(--ds-color-surface);
+  padding: var(--ds-spacing-s);
+}

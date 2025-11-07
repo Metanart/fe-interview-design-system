@@ -1,6 +1,8 @@
 import { ReactNode, FC } from "react";
 import { useTabsContext } from "../TabsContext";
 
+import styles from "./TabPanel.module.css";
+
 export type TabPanelProps = {
   /**
    * The id of the tab panel.
@@ -18,12 +20,17 @@ export type TabPanelProps = {
 export const TabPanel: FC<TabPanelProps> = (props) => {
   const { id, children } = props;
   
-  const { activeTabId } = useTabsContext();
+  const { activeTabId, tabsGroupId } = useTabsContext();
   
   if (activeTabId !== id) return null;
 
   return (
-    <div role="tabpanel" style={{ padding: 8, border: "1px solid #ccc", marginTop: 4 }}>
+    <div 
+      role="tabpanel" 
+      id={`${tabsGroupId}-panel-${id}`}
+      aria-labelledby={`${tabsGroupId}-tab-${id}`}
+      className={styles.tabPanel}
+    >
       {children}
     </div>
   );
